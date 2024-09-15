@@ -21,14 +21,15 @@ app.use("/css", express.static("css"));
 
 const connectToMongoDB = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/product_service", { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log("Connected to MongoDB");
+        await mongoose.connect("mongodb://127.0.0.1:27017/product_service", { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log("Connected to MongoDB product_service");
     } catch (error) {
         console.log("Failed to connect to MongoDB");
         console.log(error);
     }
 }
+
 connectToMongoDB();
 
 app.use("/api", productRouter);
-app.listen(process.env.PORT || 3001, () => console.log("Server started on port 3001"));
+app.listen(process.env.PORT || 3001, () => console.log("product_service started on port 3001"));

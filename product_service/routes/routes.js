@@ -45,7 +45,8 @@ router.get("/products/:id", async (req, res) => {
 });
 
 router.post("/buy", async (req, res) => {
-    if (!req.body.productId) {
+    console.log(req.body);
+    if (!req.body.productIds) {
         res.status(400).send("Product ID is required");
         return;
     }
